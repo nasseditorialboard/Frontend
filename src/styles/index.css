@@ -1,0 +1,238 @@
+/* NASS OAU — Global styles. Brand: gold #F6D300, off-white #F9F8F3, olive #494118, black #0C0A04 */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables ───────────────────────────────────────────────── */
+:root {
+  --color-gold:        #F6D300;
+  --color-black:       #0C0A04;
+  --color-olive:       #494118;
+  --color-off-white:   #F9F8F3;
+  --color-surface:     #EEEDE5;
+  --color-surface-2:   #E5E3D8;
+
+  /* Generic component tokens */
+  --primary:           #7A5F00;
+  --secondary:         #494118;
+  --bg:                #F9F8F3;
+  --surface:           #EEEDE5;
+  --card:              #E5E3D8;
+  --text-primary:      #0C0A04;
+  --text-muted:        rgba(12, 10, 4, 0.55);
+  --border-color:      #D4D0C4;
+}
+
+/* ── Base ────────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: #F9F8F3;
+  color: #0C0A04;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root { min-height: 100vh; width: 100%; background: #F9F8F3; }
+
+/* ── Custom Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #F9F8F3; }
+::-webkit-scrollbar-thumb { background: #F6D300; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #7A5F00; }
+
+/* ── Glass Card (light theme) ───────────────────────────────────── */
+.glass {
+  background: rgba(238, 237, 229, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(73, 65, 24, 0.15);
+}
+.glass:hover {
+  border-color: rgba(122, 95, 0, 0.35);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Gradient Text ──────────────────────────────────────────────── */
+.gradient-text-gold {
+  background: linear-gradient(135deg, #C9A800, #7A5F00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Generic component utilities ────────────────────────────────── */
+.text-text-primary  { color: var(--text-primary); }
+.text-text-muted    { color: var(--text-muted); }
+.text-primary       { color: var(--primary); }
+.bg-primary\/10     { background-color: rgba(122, 95, 0, 0.1); }
+.text-secondary     { color: var(--secondary); }
+.text-bg            { color: var(--bg); }
+.bg-bg              { background-color: var(--bg); }
+.bg-card            { background-color: var(--card); }
+.bg-border          { background-color: var(--border-color); }
+
+.gradient-text {
+  background: linear-gradient(135deg, #C9A800, #7A5F00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-border    { box-shadow: 0 0 0 1px rgba(122, 95, 0, 0.25); }
+.shadow-glow-sm { box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); }
+.shadow-glow-md { box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12); }
+
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: #0C0A04;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(12, 10, 4, 0.3);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  background: rgba(12, 10, 4, 0.05);
+  border-color: #494118;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transform: scale(1.02);
+}
+
+/* ── Dot Grid Overlay ───────────────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(rgba(12, 10, 4, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Mesh / light gradient bg ────────────────────────────────────── */
+.mesh-bg {
+  background: linear-gradient(160deg, #F9F8F3 0%, #EEEDE5 40%, #E5E3D8 70%, #F9F8F3 100%);
+}
+
+/* ── Neon Text (no glow on light bg) ────────────────────────────── */
+.neon-gold  { text-shadow: none; }
+.neon-green { text-shadow: none; }
+
+/* ── Ticker ─────────────────────────────────────────────────────── */
+.ticker-wrap { overflow: hidden; width: 100%; }
+.ticker-content {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker 35s linear infinite;
+}
+
+/* ── Skeleton ───────────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, #EEEDE5 25%, rgba(246,211,0,0.18) 50%, #EEEDE5 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.6s infinite;
+}
+@keyframes skeleton-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Input base ─────────────────────────────────────────────────── */
+.nass-input {
+  background: rgba(255, 253, 245, 0.95);
+  border: 1px solid rgba(73, 65, 24, 0.35);
+  color: #0C0A04;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.nass-input:focus {
+  border-color: #7A5F00;
+  box-shadow: 0 0 0 2px rgba(122, 95, 0, 0.15);
+}
+.nass-input::placeholder { color: rgba(12, 10, 4, 0.35); }
+
+/* ── Buttons ────────────────────────────────────────────────────── */
+.btn-gold {
+  background: #F6D300;
+  color: #0C0A04;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.25s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-gold:hover {
+  box-shadow: 0 4px 20px rgba(246, 211, 0, 0.45);
+  transform: scale(1.03);
+}
+
+.btn-ghost-gold {
+  background: transparent;
+  color: #494118;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(73, 65, 24, 0.5);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.25s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-ghost-gold:hover {
+  background: rgba(73, 65, 24, 0.06);
+  border-color: #494118;
+  box-shadow: 0 2px 12px rgba(73, 65, 24, 0.15);
+  transform: scale(1.03);
+}
+
+/* ── Section spacing ────────────────────────────────────────────── */
+.section-pad { padding: 5rem 0; }
+@media (max-width: 768px) { .section-pad { padding: 3rem 0; } }
+
+/* ── Periodic tile flip ─────────────────────────────────────────── */
+.tile-flip { perspective: 800px; }
+.tile-inner { transition: transform 0.55s ease; transform-style: preserve-3d; position: relative; }
+.tile-flip:hover .tile-inner { transform: rotateY(180deg); }
+.tile-front, .tile-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.tile-back { transform: rotateY(180deg); position: absolute; inset: 0; }
+
+/* ── Sine wave divider ──────────────────────────────────────────── */
+.sine-divider { width: 100%; overflow: hidden; line-height: 0; }
+.sine-divider svg { display: block; width: 100%; }
+
+/* ── Formula decoration ─────────────────────────────────────────── */
+.formula-deco {
+  position: absolute;
+  font-family: 'Space Mono', monospace;
+  color: rgba(12, 10, 4, 0.06);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  user-select: none;
+  pointer-events: none;
+}
